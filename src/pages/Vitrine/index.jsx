@@ -2,9 +2,12 @@ import Container from "../../components/container";
 import Header from "../../components/header";
 import VitrineCard from "../../components/vitrineCard";
 import { Ul } from "./styles";
-// import { useSelector, useDispatch } from "react-redux";
-// import { addCartThunk } from "../../store/modules/cart/thunk";
+
 import { useHistory } from "react-router-dom";
+
+import { useContext } from "react";
+import { ListProductsContext } from "../../providers/listProducts";
+import { CartContext } from "../../providers/cart";
 
 const Vitrine = () => {
   const history = useHistory();
@@ -12,20 +15,19 @@ const Vitrine = () => {
   const navgation = (path) => {
     return history.push(path);
   };
-  // const listProducts = useSelector(({ products }) => products);
 
-  // const dispatch = useDispatch();
+  const { listProducts } = useContext(ListProductsContext);
 
-  // const handleClick = (id) => dispatch(addCartThunk(id));
+  const { addToCart } = useContext(CartContext);
 
   return (
     <Container>
       <Header cart={navgation} />
       <Ul>
-        {/* {listProducts &&
+        {listProducts &&
           listProducts.map((product) => (
-            <VitrineCard key={product.id} product={product} add={handleClick} />
-          ))} */}
+            <VitrineCard key={product.id} product={product} add={addToCart} />
+          ))}
       </Ul>
     </Container>
   );

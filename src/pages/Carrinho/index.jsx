@@ -13,6 +13,10 @@ import { AiOutlineRollback } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+import { useContext } from "react";
+import { ListProductsContext } from "../../providers/listProducts";
+import { CartContext } from "../../providers/cart";
+
 const Carrinho = () => {
   const history = useHistory();
 
@@ -25,50 +29,48 @@ const Carrinho = () => {
 
   // const handleClick = (id) => dispatch(removeCartThunk(id));
 
+  const { removeCart, cart } = useContext(CartContext);
+
   return (
     <Container>
       <Header cart={navgation} />
-      {/* <NavBack>
+      <NavBack>
         <Link to="/">
           <AiOutlineRollback /> Store
         </Link>
       </NavBack>
       <Main>
         <ul>
-          {listProducts < 1 ? (
+          {cart && cart < 1 ? (
             <div>
               <h2>O carrinho está vazio</h2>
               <p>Clique em voltar para ir para loja</p>
               <button onClick={() => navgation("/")}>Voltar</button>
             </div>
           ) : (
-            listProducts.map((product) => (
-              <CartCard
-                key={product.id}
-                product={product}
-                remove={handleClick}
-              />
+            cart.map((product, index) => (
+              <CartCard key={index} product={product} remove={removeCart} />
             ))
           )}
         </ul>
         <div>
           <h3>Resumo do Pedido</h3>
           <div>
-            <span>{listProducts.length} Produtos</span>
+            <span>{cart.length} Produtos</span>
             <span>
               R$:
-              {listProducts
+              {cart
                 .reduce((sum, curr) => curr.price * curr.qtd + sum, 0)
                 .toFixed(2)
                 .replace(".", ",")}
             </span>
           </div>
           <button className="orange">Finalizar pedido</button>
-          <button onClick={() => dispatch(excludAllThunk())}>
-            Remover Todos
-          </button>
+          {/* <button onClick={() => dispatch(excludAllThunk())}> */}
+          {/* Remover Todos
+          </button> */}
         </div>
-      </Main> */}
+      </Main>
     </Container>
   );
 };

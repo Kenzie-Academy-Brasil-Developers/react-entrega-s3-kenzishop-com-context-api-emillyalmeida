@@ -11,7 +11,7 @@ const VitrineCard = ({ product, add }) => {
 
       <h3>{name}</h3>
       <span>R$: {price.toFixed(2).replace(".", ",")}</span>
-      <button id={id} onClick={(e) => add(e.target.id)}>
+      <button id={id} onClick={() => add(product)}>
         Adcionar ao carrinho
       </button>
     </Li>

@@ -2,6 +2,7 @@ import { LiCart } from "./styles";
 
 const CartCard = ({ product, remove }) => {
   const { id, name, price, img, qtd } = product;
+  console.log(product);
   return (
     <LiCart>
       <figure>
