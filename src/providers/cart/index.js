@@ -29,17 +29,22 @@ export const CartProvider = ({ children }) => {
 
     if (verificarDuplicacao.qtd === 1) {
       const itens = cart.filter((produ) => produ.id !== Number(id));
-      setCart(itens);
       localStorage.setItem("@ReaderStoreApi/cart", JSON.stringify(itens));
+      setCart(itens);
     } else {
       verificarDuplicacao.qtd = verificarDuplicacao.qtd - 1;
-      setCart([...cart]);
       localStorage.setItem("@ReaderStoreApi/cart", JSON.stringify([...cart]));
+      setCart([...cart]);
     }
   };
 
+  const removeAll = () => {
+    localStorage.setItem("@ReaderStoreApi/cart", JSON.stringify([]));
+    setCart([]);
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeCart, removeAll }}>
       {children}
     </CartContext.Provider>
   );

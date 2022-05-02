@@ -4,17 +4,10 @@ import CartCard from "../../components/cartCard";
 import { Main, NavBack } from "./styles";
 import { AiOutlineRollback } from "react-icons/ai";
 
-// import {
-//   removeCartThunk,
-//   excludAllThunk,
-// } from "../../store/modules/cart/thunk";
-// import { useSelector, useDispatch } from "react-redux";
-
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import { useContext } from "react";
-import { ListProductsContext } from "../../providers/listProducts";
 import { CartContext } from "../../providers/cart";
 
 const Carrinho = () => {
@@ -23,13 +16,8 @@ const Carrinho = () => {
   const navgation = (path) => {
     return history.push(path);
   };
-  // const listProducts = useSelector(({ cart }) => cart);
 
-  // const dispatch = useDispatch();
-
-  // const handleClick = (id) => dispatch(removeCartThunk(id));
-
-  const { removeCart, cart } = useContext(CartContext);
+  const { removeAll, removeCart, cart } = useContext(CartContext);
 
   return (
     <Container>
@@ -66,9 +54,7 @@ const Carrinho = () => {
             </span>
           </div>
           <button className="orange">Finalizar pedido</button>
-          {/* <button onClick={() => dispatch(excludAllThunk())}> */}
-          {/* Remover Todos
-          </button> */}
+          <button onClick={() => removeAll()}>Remover Todos</button>
         </div>
       </Main>
     </Container>

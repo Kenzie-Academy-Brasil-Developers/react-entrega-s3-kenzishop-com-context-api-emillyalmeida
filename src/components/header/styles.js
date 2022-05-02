@@ -39,6 +39,7 @@ export const Navbar = styled.header`
     height: 100%;
   }
   button {
+    position: relative;
     border: none;
     background-color: var(--blue-dark);
     display: flex;
@@ -49,6 +50,23 @@ export const Navbar = styled.header`
     &:hover {
       color: var(--mostarda);
       font-weight: 700;
+    }
+
+    > p {
+      position: absolute;
+      top: -9px;
+      left: 17px;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--mostarda);
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--blue-white);
     }
     svg {
       width: 2rem;
