@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const Navbar = styled.header`
   width: 100vw;
   height: 15%;
-  background-color: var(--blue-dark);
-  color: var(--blue-white);
+  background-color: ${(props) => props.theme.header.backgroundColor};
+  color: ${(props) => props.theme.header.color};
   padding: 30px 10px 30px 10px;
-  border-bottom: 4px solid var(--mostarda);
+  border-bottom: 4px solid ${(props) => props.theme.header.hover};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,14 +41,14 @@ export const Navbar = styled.header`
   button {
     position: relative;
     border: none;
-    background-color: var(--blue-dark);
+    background-color: ${(props) => props.theme.header.backgroundColor};
     display: flex;
     align-items: center;
     height: 100%;
-    color: var(--blue-white);
+    color: ${(props) => props.theme.header.color};
 
     &:hover {
-      color: var(--mostarda);
+      color: ${(props) => props.theme.header.hover};
       font-weight: 700;
     }
 
@@ -62,11 +62,11 @@ export const Navbar = styled.header`
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background-color: var(--mostarda);
+      background-color: ${(props) => props.theme.header.hover};
       border-radius: 50%;
       font-weight: 700;
       font-size: 0.9rem;
-      color: var(--blue-white);
+      color: ${(props) => props.theme.header.color};
     }
     svg {
       width: 2rem;

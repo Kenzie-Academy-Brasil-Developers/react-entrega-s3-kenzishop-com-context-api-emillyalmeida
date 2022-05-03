@@ -9,7 +9,7 @@ export const Li = styled.li`
   justify-content: space-around;
   align-items: center;
   list-style: none;
-  background-color: var(--blue-white);
+  background-color: ${(props) => props.theme.card.backgroundColor};
   border-radius: 5px;
   padding: 8px;
 
@@ -20,7 +20,7 @@ export const Li = styled.li`
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    background-color: var(--white);
+    background-color: #fff;
 
     img {
       width: 130px;
@@ -31,11 +31,11 @@ export const Li = styled.li`
 
   h3 {
     font-size: 1.3rem;
-    color: var(--blue-medium);
+    color: ${(props) => props.theme.color};
   }
 
   span {
-    color: var(--blue-dark);
+    color: var ${(props) => props.theme.color};
     width: 78%;
     text-align: left;
   }
@@ -45,11 +45,11 @@ export const Li = styled.li`
     border-radius: 5px;
     width: 80%;
     height: 30px;
-    background-color: var(--mostarda);
-    color: var(--blue-white);
+    background-color: ${(props) => props.theme.buttonVitrine.backgroundColor};
+    color: ${(props) => props.theme.buttonVitrine.color};
 
     &:hover {
-      background-color: var(--blue-medium);
+      background-color: ${(props) => props.theme.buttonVitrine.hover};
     }
   }
 `;

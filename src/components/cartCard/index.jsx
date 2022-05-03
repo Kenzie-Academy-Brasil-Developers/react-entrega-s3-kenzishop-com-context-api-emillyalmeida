@@ -1,4 +1,5 @@
 import { LiCart } from "./styles";
+import { FaTrashAlt } from "react-icons/fa";
 
 const CartCard = ({ product, remove }) => {
   const { id, name, price, img, qtd } = product;
@@ -15,7 +16,7 @@ const CartCard = ({ product, remove }) => {
       <div>
         <span> Quantidade: {qtd}</span>
         <button id={id} onClick={(e) => remove(e.target.id)}>
-          Remover
+          <FaTrashAlt /> Remover
         </button>
       </div>
     </LiCart>

@@ -8,7 +8,7 @@ export const LiCart = styled.li`
   justify-content: space-around;
   align-items: center;
   list-style: none;
-  background-color: var(--blue-white);
+  background-color: ${(props) => props.theme.card.backgroundColor};
   border-radius: 5px;
   padding: 8px;
 
@@ -19,7 +19,7 @@ export const LiCart = styled.li`
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    background-color: var(--white);
+    background-color: #fff;
 
     img {
       width: 80%;
@@ -38,7 +38,7 @@ export const LiCart = styled.li`
 
     > h3,
     span {
-      color: var(--mostarda);
+      color: ${(props) => props.theme.buttonVitrine.backgroundColor};
       text-align: center;
     }
   }
@@ -57,16 +57,20 @@ export const LiCart = styled.li`
       border-radius: 5px;
       width: 88%;
       height: 25px;
-      background-color: var(--blue-medium);
-      color: var(--blue-white);
+      background-color: ${(props) => props.theme.button.backgroundColor};
+      color: ${(props) => props.theme.button.textColor};
 
       &:hover {
-        background-color: var(--mostarda);
+        background-color: ${(props) => props.theme.button.hover};
+      }
+
+      svg {
+        transform: translate(0, 2px);
       }
     }
 
     span {
-      color: var(--blue-dark);
+      color: ${(props) => props.theme.color};
       font-size: 0.7rem;
     }
   }

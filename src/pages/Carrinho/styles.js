@@ -2,18 +2,20 @@ import styled from "styled-components";
 
 export const NavBack = styled.div`
   width: 100%;
-  height: 3%;
-  margin-left: 5%;
+  height: 4%;
+  padding-left: 5%;
+  padding-right: 5%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   a {
-    color: var(--mostarda);
+    color: ${(props) => props.theme.header.hover};
     text-decoration: none;
     font-weight: bold;
 
     &:hover {
-      color: var(--blue-dark);
+      color: ${(props) => props.theme.header.color};
     }
 
     > svg {
@@ -21,6 +23,14 @@ export const NavBack = styled.div`
       width: 1.3rem;
       transform: translate(0, 3px);
     }
+  }
+  button {
+    width: 26px;
+    height: 100%;
+    background-color: ${(props) => props.theme.button.backgroundColor};
+    color: ${(props) => props.theme.button.textColor};
+    border: none;
+    border-radius: 5px;
   }
 `;
 export const Main = styled.main`
@@ -62,15 +72,19 @@ export const Main = styled.main`
       justify-content: space-around;
 
       h2 {
-        color: var(--mostarda);
+        color: ${(props) => props.theme.header.hover};
         font-size: 1.5rem;
+      }
+
+      p {
+        color: ${(props) => props.theme.color};
       }
 
       button {
         width: 120px;
         height: 30px;
-        background-color: var(--blue-dark);
-        color: var(--blue-white);
+        background-color: ${(props) => props.theme.button.backgroundColor};
+        color: ${(props) => props.theme.button.textColor};
         border: none;
         border-radius: 5px;
         font-weight: 700;
@@ -78,7 +92,7 @@ export const Main = styled.main`
     }
   }
   > div {
-    background-color: var(--blue-white);
+    background-color: ${(props) => props.theme.card.backgroundColor};
     width: 90%;
     height: 35%;
     padding: 5px;
@@ -93,7 +107,7 @@ export const Main = styled.main`
     }
 
     > h3 {
-      color: var(--blue-medium);
+      color: ${(props) => props.theme.buttonVitrine.backgroundColor};
       text-align: center;
       font-size: 1.3rem;
     }
@@ -104,28 +118,28 @@ export const Main = styled.main`
 
       > span {
         font-size: 1rem;
-        color: var(--blue-dark);
+        color: ${(props) => props.theme.color};
         font-weight: bold;
       }
     }
     > button {
       width: 85%;
       height: 32px;
-      background-color: var(--blue-dark);
-      color: var(--blue-white);
+      background-color: ${(props) => props.theme.button.backgroundColor};
+      color: ${(props) => props.theme.button.color};
       border: none;
       border-radius: 5px;
       font-weight: 700;
 
       &:hover {
-        background-color: var(--blue-medium);
+        opacity: 0.75;
       }
     }
     .orange {
-      background-color: var(--mostarda);
+      background-color: ${(props) => props.theme.buttonVitrine.backgroundColor};
 
       &:hover {
-        background-color: var(--blue-dark);
+        opacity: 0.75;
       }
     }
   }

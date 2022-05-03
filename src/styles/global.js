@@ -8,17 +8,17 @@ export default createGlobalStyle`
     outline: 0;
 }
 
-:root{
+/* :root{
     --blue-dark: #293241;
     --blue-medium:#3d5a80;
     --blue-ligth:#98c1d9;
     --blue-white:#e0fbfc;
     --mostarda:#ee6c4d;
     --white:#fff
-}
+} */
 
 body{
-  background-color: var(--blue-ligth);
+  background-color: ${(props) => props.theme.backgroundColor};
   font-family: "Inter", serif;
   height: 100vh;
   width: 100vw;

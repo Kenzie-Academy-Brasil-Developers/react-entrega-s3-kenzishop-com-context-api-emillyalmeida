@@ -2,15 +2,15 @@ import { Switch, Route } from "react-router-dom";
 import Carrinho from "../pages/Carrinho";
 import Vitrine from "../pages/Vitrine";
 
-const Routers = () => {
+const Routers = ({ changeColor }) => {
   return (
     <Switch>
       <Route exact path="/">
-        <Vitrine />
+        <Vitrine theme={changeColor} />
       </Route>
 
       <Route path="/cart">
-        <Carrinho />
+        <Carrinho theme={changeColor} />
       </Route>
     </Switch>
   );

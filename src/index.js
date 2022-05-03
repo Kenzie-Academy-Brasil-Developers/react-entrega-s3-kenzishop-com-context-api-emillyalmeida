@@ -6,16 +6,19 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { ListProductsProvider } from "./providers/listProducts";
 import { CartProvider } from "./providers/cart";
+import { ColorProvider } from "./providers/color";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ListProductsProvider>
-      <CartProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </CartProvider>
-    </ListProductsProvider>
+    <ColorProvider>
+      <ListProductsProvider>
+        <CartProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </CartProvider>
+      </ListProductsProvider>
+    </ColorProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
